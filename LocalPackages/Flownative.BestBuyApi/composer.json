@@ -1,0 +1,23 @@
+{
+    "name": "flownative/bestbuyapi",
+    "type": "neos-package",
+    "description": "BestBuy API for Flow",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "neos/flow": "*",
+        "guzzlehttp/guzzle": "~6.3",
+        "netresearch/jsonmapper": "~1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flownative\\BestBuyApi\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Flownative.BestBuyApi"
+        }
+    }
+}
