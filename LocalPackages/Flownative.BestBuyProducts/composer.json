@@ -1,0 +1,22 @@
+{
+    "name": "flownative/bestbuyproducts",
+    "type": "neos-package",
+    "description": "BestBuy Product entities",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "neos/flow": "*",
+        "flownative/bestbuyapi": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flownative\\BestBuyProducts\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Flownative.BestBuyProducts"
+        }
+    }
+}

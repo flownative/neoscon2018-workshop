@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ffd7565491994c11ef13ee78557a710",
+    "content-hash": "de800a6fb7d93d17eb523504f44285ae",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -725,7 +725,7 @@
         },
         {
             "name": "flownative/bestbuyapi",
-            "version": "dev-master",
+            "version": "9999999-dev",
             "dist": {
                 "type": "path",
                 "url": "./LocalPackages/Flownative.BestBuyApi",
@@ -752,6 +752,35 @@
                 "MIT"
             ],
             "description": "BestBuy API for Flow"
+        },
+        {
+            "name": "flownative/bestbuyproducts",
+            "version": "9999999-dev",
+            "dist": {
+                "type": "path",
+                "url": "./LocalPackages/Flownative.BestBuyProducts",
+                "reference": "1def5cb311880bb5824ccb4353bd7af80e94ed49",
+                "shasum": null
+            },
+            "require": {
+                "flownative/bestbuyapi": "self.version",
+                "neos/flow": "*"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Flownative.BestBuyProducts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flownative\\BestBuyProducts\\": "Classes"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "BestBuy Product entities"
         },
         {
             "name": "flowpack/elasticsearch",
@@ -5033,16 +5062,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.11",
+            "version": "v2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
                 "shasum": ""
             },
             "require": {
@@ -5077,7 +5106,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-09-27T21:40:39+00:00"
+            "time": "2018-04-04T21:24:14+00:00"
         },
         {
             "name": "psr/http-message",
@@ -5258,16 +5287,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.36",
+            "version": "v2.8.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a6ff8b2ffa4eb43046828b303af2e3fedadacc27"
+                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a6ff8b2ffa4eb43046828b303af2e3fedadacc27",
-                "reference": "a6ff8b2ffa4eb43046828b303af2e3fedadacc27",
+                "url": "https://api.github.com/repos/symfony/console/zipball/390fa4899dbcc47bd41935d87c4572ea4305d3ce",
+                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce",
                 "shasum": ""
             },
             "require": {
@@ -5315,7 +5344,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-26T15:33:21+00:00"
+            "time": "2018-03-19T21:13:58+00:00"
         },
         {
             "name": "symfony/debug",
@@ -5376,16 +5405,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.8.36",
+            "version": "v2.8.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "91d247d43b511673af426131119175bdfc585781"
+                "reference": "a7a21660f1b25a1feeadee32fc4cf62d13329c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/91d247d43b511673af426131119175bdfc585781",
-                "reference": "91d247d43b511673af426131119175bdfc585781",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/a7a21660f1b25a1feeadee32fc4cf62d13329c91",
+                "reference": "a7a21660f1b25a1feeadee32fc4cf62d13329c91",
                 "shasum": ""
             },
             "require": {
@@ -5428,7 +5457,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-19T16:23:47+00:00"
+            "time": "2018-03-19T21:11:56+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -5491,7 +5520,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.36",
+            "version": "v2.8.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -7041,16 +7070,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.8.36",
+            "version": "v2.8.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "99a4b2c2f1757d62d081b5f9f14128f23504897d"
+                "reference": "3cdc270724e4666006118283c700a4d7f9cbe264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/99a4b2c2f1757d62d081b5f9f14128f23504897d",
-                "reference": "99a4b2c2f1757d62d081b5f9f14128f23504897d",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/3cdc270724e4666006118283c700a4d7f9cbe264",
+                "reference": "3cdc270724e4666006118283c700a4d7f9cbe264",
                 "shasum": ""
             },
             "require": {
@@ -7090,7 +7119,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-03T14:55:47+00:00"
+            "time": "2018-03-10T18:19:36+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -7187,6 +7216,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "flownative/bestbuyapi": 20,
+        "flownative/bestbuyproducts": 20,
         "neos/behat": 20
     },
     "prefer-stable": false,

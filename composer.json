@@ -32,7 +32,8 @@
         "flowpack/elasticsearch-contentrepositoryadaptor": "^4.0",
         "flowpack/searchplugin": "^3.1",
 
-        "flownative/bestbuyapi": "dev-master"
+        "flownative/bestbuyapi": "@dev",
+        "flownative/bestbuyproducts": "self.version"
     },
     "require-dev": {
         "neos/buildessentials": "~4.1.0",
@@ -45,8 +46,8 @@
         "typo3/neos-base-distribution": "3.3.9"
     },
     "repositories": [{
-        "type": "path",
-        "url": "./LocalPackages/*"
+            "type": "path",
+            "url": "./LocalPackages/*"
     }],
     "suggest": {
         "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
