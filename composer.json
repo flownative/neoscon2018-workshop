@@ -33,7 +33,8 @@
         "flowpack/searchplugin": "^3.1",
 
         "flownative/bestbuyapi": "@dev",
-        "flownative/bestbuyproducts": "self.version"
+        "flownative/bestbuyproducts": "self.version",
+        "flowpack/jobqueue-doctrine": "^2.0"
     },
     "require-dev": {
         "neos/buildessentials": "~4.1.0",
