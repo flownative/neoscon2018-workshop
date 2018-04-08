@@ -6,6 +6,7 @@ use Flownative\BestBuyProducts\TypeConverter\CategoryTypeConverter;
 use Neos\Flow\Annotations as Flow;
 use Flownative\BestBuyProducts\Domain\Repository\CategoryRepository;
 use Neos\Flow\Cli\CommandController;
+use Neos\Flow\Core\Booting\Scripts;
 use Neos\Flow\Persistence\PersistenceManagerInterface;
 
 /**
@@ -32,6 +33,12 @@ class ImportCommandController extends CommandController
     protected $persistenceManager;
 
     /**
+     * @Flow\InjectConfiguration(package="Neos.Flow")
+     * @var array
+     */
+    protected $flowSettings;
+
+    /**
      * A simple
      */
     public function simpleImportAllCategoriesCommand()
@@ -51,5 +58,34 @@ class ImportCommandController extends CommandController
             }
             $this->outputLine('Imported: ' . $category->getId());
         }
+        $this->outputLine(memory_get_peak_usage());
+    }
+
+    /**
+     *
+     */
+    public function importWithSubExecCommand()
+    {
+        foreach ($this->categoryApiRepository->findAllIdentifiers() as $categoryData) {
+            Scripts::executeCommand('import:importSingleCategory', $this->flowSettings, true, ['id' => $categoryData['id']]);
+        }
+        $this->outputLine(memory_get_peak_usage());
+    }
+
+    /**
+     * @param string $id
+     * @throws \Neos\Flow\Persistence\Exception\IllegalObjectTypeException
+     * @internal
+     */
+    public function importSingleCategoryCommand(string $id)
+    {
+        $categoryTypeConverter = new CategoryTypeConverter();
+        $category = $categoryTypeConverter->convertFrom($id, Category::class);
+        if ($this->persistenceManager->isNewObject($category)) {
+            $this->categoryRepository->add($category);
+        } else {
+            $this->categoryRepository->update($category);
+        }
+        $this->outputLine('Imported: ' . $category->getId());
     }
 }

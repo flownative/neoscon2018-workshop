@@ -9,28 +9,13 @@ use Neos\Flow\Persistence\RepositoryInterface;
 /**
  * @Flow\Scope("singleton")
  */
-class CategoryRepository implements RepositoryInterface
+class CategoryRepository
 {
     /**
      * @Flow\InjectConfiguration(path="apiKey", package="Flownative.BestBuyApi")
      * @var string
      */
     protected $apiKey;
-
-    public function getEntityClassName()
-    {
-        // TODO: Implement getEntityClassName() method.
-    }
-
-    public function add($object)
-    {
-        // TODO: Implement add() method.
-    }
-
-    public function remove($object)
-    {
-        // TODO: Implement remove() method.
-    }
 
     /**
      * @return ApiQueryResult|QueryResultInterface
@@ -59,12 +44,25 @@ class CategoryRepository implements RepositoryInterface
     }
 
     /**
+     * @return ApiQueryResult
+     */
+    public function findAllIdentifiers()
+    {
+        return new ApiQueryResult(new ApiQuery($this->apiKey, 'https://api.bestbuy.com/v1/', 'categories', '(id=abcat*)', [
+            'pageSize' => 100,
+            'show' => 'id'
+        ]));
+    }
+
+    /**
      * @param mixed $identifier
      * @return mixed|object
      */
     public function findByIdentifier($identifier)
     {
-        $apiResult = new ApiQueryResult(new ApiQuery($this->apiKey, 'https://api.bestbuy.com/v1/', 'categories', '(id=' . $identifier . ')', []));
+        $apiResult = new ApiQueryResult(new ApiQuery($this->apiKey, 'https://api.bestbuy.com/v1/', 'categories', '(id=' . $identifier . ')', [
+            'pageSize' => 1
+        ]));
         return $apiResult->getFirst();
     }
 
