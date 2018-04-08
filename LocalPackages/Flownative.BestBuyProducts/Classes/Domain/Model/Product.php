@@ -36,38 +36,38 @@ class Product
     /**
      * @var array
      */
-    protected $relatedProducts;
+    protected $relatedProducts = [];
 
     /**
      * @var string
      * @ORM\Column(type="text")
      */
-    protected $shortDescription;
+    protected $shortDescription = '';
 
     /**
      * @var string
      */
-    protected $manufacturer;
+    protected $manufacturer = '';
 
     /**
      * @var string
      */
-    protected $image;
+    protected $image = '';
 
     /**
      * @var string
      */
-    protected $color;
+    protected $color = '';
 
     /**
      * @var string
      */
-    protected $type;
+    protected $type = '';
 
     /**
      * @var string
      */
-    protected $modelNumber;
+    protected $modelNumber = '';
 
     /**
      * @ORM\ManyToMany

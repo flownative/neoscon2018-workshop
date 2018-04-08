@@ -12,7 +12,7 @@ use Neos\Flow\Persistence\PersistenceManagerInterface;
 /**
  *
  */
-class ImportCommandController extends CommandController
+class CategoryCommandController extends CommandController
 {
     /**
      * @Flow\Inject
@@ -41,7 +41,7 @@ class ImportCommandController extends CommandController
     /**
      * A simple
      */
-    public function simpleImportAllCategoriesCommand()
+    public function simpleImportAllCommand()
     {
         $categoryTypeConverter = new CategoryTypeConverter();
 
@@ -87,5 +87,6 @@ class ImportCommandController extends CommandController
             $this->categoryRepository->update($category);
         }
         $this->outputLine('Imported: ' . $category->getId());
+        $this->outputLine('');
     }
 }

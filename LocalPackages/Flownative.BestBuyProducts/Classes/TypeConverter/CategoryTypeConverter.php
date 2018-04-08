@@ -34,7 +34,7 @@ class CategoryTypeConverter extends AbstractTypeConverter
     /**
      * @var string
      */
-    protected $targetType = 'object';
+    protected $targetType = Category::class;
 
     /**
      * @var integer

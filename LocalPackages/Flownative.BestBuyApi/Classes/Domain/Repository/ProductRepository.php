@@ -56,10 +56,13 @@ class ProductRepository
 
     /**
      * @param string $categoryId
+     * @param int $pageSize
      * @return ApiQueryResult
      */
-    public function findByCategory(string $categoryId)
+    public function findByCategory(string $categoryId, int $pageSize = 10)
     {
-        return new ApiQueryResult(new ApiQuery($this->apiKey, 'https://api.bestbuy.com/v1/', 'products', sprintf('(categoryPath.id=%s)', $categoryId), []));
+        return new ApiQueryResult(new ApiQuery($this->apiKey, 'https://api.bestbuy.com/v1/', 'products', sprintf('(categoryPath.id=%s)', $categoryId), [
+            'pageSize' => $pageSize
+        ]));
     }
 }
