@@ -1,6 +1,7 @@
 <?php
 namespace Flownative\BestBuyProducts\Queue;
 
+use Flownative\BestBuyProducts\Domain\Model\Category;
 use Flownative\BestBuyProducts\Domain\Repository\ProductRepository;
 use Flownative\BestBuyProducts\TypeConverter\ProductTypeConverter;
 use Neos\Flow\Annotations as Flow;
@@ -55,9 +56,11 @@ class ProductImportJob implements JobInterface
      */
     public function execute(QueueInterface $queue, Message $message)
     {
+        $category = $this->persistenceManager->getObjectByIdentifier($this->categoryIdentifier, Category::class, true);
         $productConverter = new ProductTypeConverter();
         foreach ($this->productData as $productData) {
             $product = $productConverter->convertFrom($productData, Product::class, []);
+            $product->setCategory($category);
             if ($this->persistenceManager->isNewObject($product)) {
                 $this->productRepository->add($product);
             } else {

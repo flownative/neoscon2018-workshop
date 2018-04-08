@@ -70,10 +70,11 @@ class Product
     protected $modelNumber = '';
 
     /**
-     * @ORM\ManyToMany
-     * @var Collection<\Flownative\BestBuyProducts\Domain\Model\Category>
+     * @var Category
+     * @ORM\ManyToOne
+     * @ORM\Column(nullable=true)
      */
-    protected $categoryPath;
+    protected $category;
 
     /**
      * Constructor
@@ -83,7 +84,6 @@ class Product
     public function __construct(string $sku)
     {
         $this->sku = $sku;
-        $this->categoryPath = new ArrayCollection();
     }
 
     /**
@@ -255,18 +255,18 @@ class Product
     }
 
     /**
-     * @return Collection
+     * @return Category
      */
-    public function getCategoryPath(): Collection
+    public function getCategory(): ?Category
     {
-        return $this->categoryPath;
+        return $this->category;
     }
 
     /**
-     * @param Collection $categoryPath
+     * @param Category $category
      */
-    public function setCategoryPath(Collection $categoryPath): void
+    public function setCategory(Category $category): void
     {
-        $this->categoryPath = $categoryPath;
+        $this->category = $category;
     }
 }

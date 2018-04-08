@@ -1,6 +1,7 @@
 <?php
 namespace Flownative\BestBuyProducts\Command;
 
+use Flownative\BestBuyProducts\Domain\Model\Category;
 use Flownative\BestBuyProducts\Domain\Model\Product;
 use Flownative\BestBuyProducts\Queue\ProductImportJob;
 use Flownative\BestBuyProducts\TypeConverter\ProductTypeConverter;
@@ -59,9 +60,11 @@ class ProductCommandController extends CommandController
      */
     public function importAllSimpleCommand(string $categoryIdentifier)
     {
+        $category = $this->persistenceManager->getObjectByIdentifier($categoryIdentifier, Category::class, true);
         $productConverter = new ProductTypeConverter();
         foreach ($this->productApiRepository->findByCategory($categoryIdentifier) as $productData) {
             $product = $productConverter->convertFrom($productData, Product::class, []);
+            $product->setCategory($category);
             if ($this->persistenceManager->isNewObject($product)) {
                 $this->productRepository->add($product);
             } else {
@@ -72,6 +75,10 @@ class ProductCommandController extends CommandController
         $this->outputLine(memory_get_peak_usage());
     }
 
+    /**
+     * @param string $categoryIdentifier
+     * @param int $jobSize
+     */
     public function buildImportQueueCommand(string $categoryIdentifier, int $jobSize = 10)
     {
         $i = 0;
