@@ -1,8 +1,10 @@
 <?php
 namespace Flownative\BestBuyProducts\Command;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Flownative\BestBuyProducts\Domain\Model\Category;
 use Flownative\BestBuyProducts\Domain\Model\Product;
+use Flownative\BestBuyProducts\Domain\Service\ProductIndexer;
 use Flownative\BestBuyProducts\Queue\ProductImportJob;
 use Flownative\BestBuyProducts\TypeConverter\ProductTypeConverter;
 use Flowpack\JobQueue\Common\Job\JobManager;
@@ -33,9 +35,23 @@ class ProductCommandController extends CommandController
 
     /**
      * @Flow\Inject
+     * @var ProductIndexer
+     */
+    protected $productIndexer;
+
+    /**
+     * @Flow\Inject
      * @var PersistenceManagerInterface
      */
     protected $persistenceManager;
+
+    /**
+     * Doctrines EntityManager
+     *
+     * @Flow\Inject
+     * @var ObjectManager
+     */
+    protected $entityManager;
 
     /**
      * @var JobManager
@@ -139,5 +155,26 @@ class ProductCommandController extends CommandController
                 $this->quit();
             }
         } while (true);
+    }
+
+    /**
+     * @throws \Flowpack\ElasticSearch\Exception
+     */
+    public function indexProductsCommand()
+    {
+        $callback = function ($iteration) {
+            if ($iteration % 100) {
+                $this->entityManager->clear();
+            }
+        };
+
+        $this->productIndexer->createProductIndex();
+        $iteratableResult = $this->productRepository->findAllIterator();
+        foreach ($this->productRepository->iterate($iteratableResult, $callback) as $product) {
+            $this->productIndexer->indexProduct($product);
+            $this->outputLine('Indexed ' . $product->getSku());
+        }
+
+        $this->productIndexer->updateIndexAlias();
     }
 }

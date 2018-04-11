@@ -15,6 +15,8 @@
         "vendor-dir": "Packages/Libraries",
         "bin-dir": "bin"
     },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
         "neos/neos": "~3.3.0",
         "neos/nodetypes": "~3.3.0",
@@ -32,7 +34,6 @@
         "flowpack/elasticsearch-contentrepositoryadaptor": "^4.0",
         "flowpack/searchplugin": "^3.1",
 
-        "flownative/bestbuyapi": "@dev",
         "flownative/bestbuyproducts": "self.version",
         "flowpack/jobqueue-doctrine": "^2.0"
     },

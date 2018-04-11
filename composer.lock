@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "69ca2dcb98ea4e92f1e92b8d933eb26e",
+    "content-hash": "e5444cbad0c33ed1794c6d8e6221b06b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3051,21 +3051,21 @@
         },
         {
             "name": "neos/neos-ui",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui.git",
-                "reference": "389822d8c516931b45b3c989427caaa12d8c9f02"
+                "reference": "5a3e1f1766953807919dd13679cba1937b575c16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui/zipball/389822d8c516931b45b3c989427caaa12d8c9f02",
-                "reference": "389822d8c516931b45b3c989427caaa12d8c9f02",
+                "url": "https://api.github.com/repos/neos/neos-ui/zipball/5a3e1f1766953807919dd13679cba1937b575c16",
+                "reference": "5a3e1f1766953807919dd13679cba1937b575c16",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^3.3 || dev-master",
-                "neos/neos-ui-compiled": "1.0.9"
+                "neos/neos-ui-compiled": "1.0.10"
             },
             "type": "neos-package",
             "extra": {
@@ -3153,20 +3153,20 @@
                 "GPL-3.0-or-later"
             ],
             "description": "NEOS CMS UI rewritten in React",
-            "time": "2018-03-14T12:24:31+00:00"
+            "time": "2018-04-09T14:51:14+00:00"
         },
         {
             "name": "neos/neos-ui-compiled",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui-compiled.git",
-                "reference": "12802dbe87e48899e7986c77f56ee0d3c3fe8f8c"
+                "reference": "2c1dbc97775307e9887fceaded973040523be116"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/12802dbe87e48899e7986c77f56ee0d3c3fe8f8c",
-                "reference": "12802dbe87e48899e7986c77f56ee0d3c3fe8f8c",
+                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/2c1dbc97775307e9887fceaded973040523be116",
+                "reference": "2c1dbc97775307e9887fceaded973040523be116",
                 "shasum": ""
             },
             "require": {
@@ -3184,7 +3184,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-03-14T12:29:29+00:00"
+            "time": "2018-04-09T15:04:50+00:00"
         },
         {
             "name": "neos/nodetypes",
@@ -5463,16 +5463,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.37",
+            "version": "v2.8.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce"
+                "reference": "7f78892d900c72a40acd1fe793c856ef0c110f26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/390fa4899dbcc47bd41935d87c4572ea4305d3ce",
-                "reference": "390fa4899dbcc47bd41935d87c4572ea4305d3ce",
+                "url": "https://api.github.com/repos/symfony/console/zipball/7f78892d900c72a40acd1fe793c856ef0c110f26",
+                "reference": "7f78892d900c72a40acd1fe793c856ef0c110f26",
                 "shasum": ""
             },
             "require": {
@@ -5520,7 +5520,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-03-19T21:13:58+00:00"
+            "time": "2018-04-03T05:20:27+00:00"
         },
         {
             "name": "symfony/debug",
@@ -5581,7 +5581,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v2.8.37",
+            "version": "v2.8.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -5696,7 +5696,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.37",
+            "version": "v2.8.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -7246,7 +7246,7 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v2.8.37",
+            "version": "v2.8.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -7389,13 +7389,12 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "flownative/bestbuyapi": 20,
         "flownative/bestbuyproducts": 20,
         "neos/behat": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
