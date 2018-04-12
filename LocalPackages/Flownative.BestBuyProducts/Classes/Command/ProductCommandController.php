@@ -168,6 +168,15 @@ class ProductCommandController extends CommandController
     /**
      * @throws \Flowpack\ElasticSearch\Exception
      */
+    public function createEmptyIndexCommand()
+    {
+        $this->productIndexer->createProductIndex();
+        $this->productIndexer->updateIndexAlias();
+    }
+
+    /**
+     * @throws \Flowpack\ElasticSearch\Exception
+     */
     public function indexProductsCommand()
     {
         $callback = function ($iteration) {

@@ -67,7 +67,7 @@ class CategoryCommandController extends CommandController
     public function importWithSubExecCommand()
     {
         foreach ($this->categoryApiRepository->findAllIdentifiers() as $categoryData) {
-            Scripts::executeCommand('import:importSingleCategory', $this->flowSettings, true, ['id' => $categoryData['id']]);
+            Scripts::executeCommand('category:importsinglecategory', $this->flowSettings, true, ['id' => $categoryData['id']]);
         }
         $this->outputLine(memory_get_peak_usage());
     }

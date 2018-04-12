@@ -32,7 +32,8 @@ class ProductQueryBuilder implements ProtectedContextAwareInterface, \JsonSerial
      *
      * @var array
      */
-    protected $request = ['query' => [
+    protected $request = [
+        'query' => [
         'filtered' => [
             'query' => ['bool' => ['must' => [['match_all' => []]]]],
             'filter' => ['bool' => ['must' => [], 'should' => []]]
@@ -130,6 +131,16 @@ class ProductQueryBuilder implements ProtectedContextAwareInterface, \JsonSerial
     public function lessThanOrEqual($propertyName, $value)
     {
         return $this->queryFilter('range', [$propertyName => ['lte' => $value]]);
+    }
+
+    /**
+     * @param string $searchString
+     * @return QueryInterface
+     */
+    public function fulltext(string $searchString)
+    {
+        $this->appendAtPath('query.filtered.query.bool.must', ['match_phrase' => ['shortDescription' => ['query' => $searchString, 'analyzer' => 'custom_analyzer']]]);
+        return $this;
     }
 
     /**

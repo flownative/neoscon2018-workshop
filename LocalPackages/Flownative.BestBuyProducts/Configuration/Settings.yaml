@@ -1,0 +1,64 @@
+Flowpack:
+  JobQueue:
+    Common:
+      queues:
+        'category-import':
+          className: 'Flowpack\JobQueue\Doctrine\Queue\DoctrineQueue'
+          executeIsolated: true
+          options:
+            tableName: 'flownative_bestbuy_category_import'
+            backendOptions:
+              driver: pdo_mysql
+              dbname: neoscon2018-workshop
+              user: root
+              password: dev
+              host: 127.0.0.1
+            defaultTimeout: 50
+          releaseOptions:
+            priority: 512
+            delay: 120
+        'product-import':
+          className: 'Flowpack\JobQueue\Doctrine\Queue\DoctrineQueue'
+          executeIsolated: true
+          options:
+            tableName: 'flownative_bestbuy_product_import'
+            backendOptions:
+              driver: pdo_mysql
+              dbname: neoscon2018-workshop
+              user: root
+              password: dev
+              host: 127.0.0.1
+            defaultTimeout: 50
+          releaseOptions:
+            priority: 512
+            delay: 120
+  ElasticSearch:
+    indexes:
+      default:
+        'bestbuy-products':
+          analysis:
+            filter:
+              custom_synonym_filter:
+                type: synonym
+                synonyms:
+                  - 'remote, remoco'
+              custom_asciifolding_filter:
+                type: asciifolding
+                preserve_original: true
+              custom_english_stemmer:
+                type: 'stemmer'
+                name: 'english'
+            analyzer:
+              custom_analyzer:
+                type: custom
+                tokenizer: standard
+                char_filter:
+                  - html_strip
+                filter:
+                  - lowercase
+                  - custom_asciifolding_filter
+                  - custom_english_stemmer
+                  - custom_synonym_filter
+    ContentRepositoryAdaptor:
+      driver:
+        version: '2.x'
