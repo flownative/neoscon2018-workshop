@@ -1,0 +1,6 @@
+Flownative\BestBuyProducts\Domain\Service\ProductQueryBuilder:
+  properties:
+    elasticSearchClient:
+      object:
+        factoryObjectName: Flowpack\ElasticSearch\Domain\Factory\ClientFactory
+        factoryMethodName: create

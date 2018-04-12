@@ -3051,21 +3051,21 @@
         },
         {
             "name": "neos/neos-ui",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui.git",
-                "reference": "5a3e1f1766953807919dd13679cba1937b575c16"
+                "reference": "2676b06b6423236b0cb113f3c27bbb0e014ab8b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui/zipball/5a3e1f1766953807919dd13679cba1937b575c16",
-                "reference": "5a3e1f1766953807919dd13679cba1937b575c16",
+                "url": "https://api.github.com/repos/neos/neos-ui/zipball/2676b06b6423236b0cb113f3c27bbb0e014ab8b4",
+                "reference": "2676b06b6423236b0cb113f3c27bbb0e014ab8b4",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^3.3 || dev-master",
-                "neos/neos-ui-compiled": "1.0.10"
+                "neos/neos-ui-compiled": "1.0.11"
             },
             "type": "neos-package",
             "extra": {
@@ -3153,20 +3153,20 @@
                 "GPL-3.0-or-later"
             ],
             "description": "NEOS CMS UI rewritten in React",
-            "time": "2018-04-09T14:51:14+00:00"
+            "time": "2018-04-10T11:29:25+00:00"
         },
         {
             "name": "neos/neos-ui-compiled",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui-compiled.git",
-                "reference": "2c1dbc97775307e9887fceaded973040523be116"
+                "reference": "721712cfafff1ed98b2b3c980140c362891af5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/2c1dbc97775307e9887fceaded973040523be116",
-                "reference": "2c1dbc97775307e9887fceaded973040523be116",
+                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/721712cfafff1ed98b2b3c980140c362891af5ad",
+                "reference": "721712cfafff1ed98b2b3c980140c362891af5ad",
                 "shasum": ""
             },
             "require": {
@@ -3184,7 +3184,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-04-09T15:04:50+00:00"
+            "time": "2018-04-10T11:44:57+00:00"
         },
         {
             "name": "neos/nodetypes",

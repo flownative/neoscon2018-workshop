@@ -5,11 +5,13 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Flownative\BestBuyProducts\Domain\Model\Category;
 use Flownative\BestBuyProducts\Domain\Model\Product;
 use Flownative\BestBuyProducts\Domain\Service\ProductIndexer;
+use Flownative\BestBuyProducts\Domain\Service\ProductQueryBuilder;
 use Flownative\BestBuyProducts\Queue\ProductImportJob;
 use Flownative\BestBuyProducts\TypeConverter\ProductTypeConverter;
 use Flowpack\JobQueue\Common\Job\JobManager;
 use Flowpack\JobQueue\Common\Job\StaticMethodCallJob;
 use Flowpack\JobQueue\Common\Queue\QueueManager;
+use Neos\Eel\CompilingEvaluator;
 use Neos\Flow\Annotations as Flow;
 use Flownative\BestBuyProducts\Domain\Repository\ProductRepository;
 use Neos\Flow\Cli\CommandController;
@@ -64,6 +66,12 @@ class ProductCommandController extends CommandController
      * @Flow\Inject
      */
     protected $queueManager;
+
+    /**
+     * @Flow\Inject(lazy=false)
+     * @var CompilingEvaluator
+     */
+    protected $eelEvaluator;
 
     /**
      * @Flow\InjectConfiguration(package="Neos.Flow")
@@ -176,5 +184,14 @@ class ProductCommandController extends CommandController
         }
 
         $this->productIndexer->updateIndexAlias();
+    }
+
+    /**
+     * @param string $eelExpression
+     */
+    public function queryIndexCommand(string $eelExpression)
+    {
+        $result = \Neos\Eel\Utility::evaluateEelExpression($eelExpression, $this->eelEvaluator, ['query' => new ProductQueryBuilder()], []);
+        var_dump($result);
     }
 }
