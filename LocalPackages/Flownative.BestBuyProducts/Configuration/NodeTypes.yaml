@@ -1,0 +1,16 @@
+'Flownative.BestBuyProducts:Product':
+  label: "${node.properties.product.name}"
+  superTypes:
+    'Neos.NodeTypes:Page': true
+    'Flowpack.SearchPlugin:SuggestableMixin': false
+  ui:
+    label: 'Product'
+  properties:
+    product:
+      type: '\Flownative\BestBuyProducts\Domain\Model\Product'
+      search:
+        elasticSearchMapping:
+          type: string
+        indexing: "${node.properties.product.name}"
+
+

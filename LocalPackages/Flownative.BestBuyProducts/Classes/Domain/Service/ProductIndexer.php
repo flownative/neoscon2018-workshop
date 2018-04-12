@@ -84,7 +84,7 @@ class ProductIndexer
         $productType = new GenericType($index, $this->typeName);
         $mapping = new Mapping($productType);
 
-        foreach (['modelNumber', 'color', 'manufacturer', 'sku', 'regularPrice', 'category'] as $notAnalyzedProperty) {
+        foreach (['modelNumber', 'color', 'manufacturer', 'sku', 'category'] as $notAnalyzedProperty) {
             $mapping->setPropertyByPath($notAnalyzedProperty,
                 [
                     'type' => 'string',
@@ -92,6 +92,12 @@ class ProductIndexer
                 ]
             );
         }
+
+        $mapping->setPropertyByPath('regularPrice', [
+            'type' => 'integer',
+            'index' => 'not_analyzed',
+            'include_in_all' => false
+        ]);
 
         $mapping->setPropertyByPath('image', [
             'type' => 'string',

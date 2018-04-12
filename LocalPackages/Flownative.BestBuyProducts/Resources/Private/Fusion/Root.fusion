@@ -1,0 +1,7 @@
+root {
+    productPage {
+        @position = 'before default'
+        condition = ${q(node).is('[instanceof Flownative.BestBuyProducts:Product]')}
+        renderPath = '/productPage'
+    }
+}
